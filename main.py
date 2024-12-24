@@ -3,7 +3,7 @@ import time
 
 def calculate_square(numbers):
     """
-    Потік 1: Обчислення квадратів чисел.
+    Поток 1: Обчислення квадратів чисел.
     """
     for n in numbers:
         print(f"Thread 1 (Square): {n}^2 = {n ** 2}")
@@ -11,25 +11,24 @@ def calculate_square(numbers):
 
 def calculate_cube(numbers):
     """
-    Потік 2: Обчислення кубів чисел.
+    Поток 2: Обчислення кубів чисел.
     """
     for n in numbers:
         print(f"Thread 2 (Cube): {n}^3 = {n ** 3}")
         time.sleep(1)
 
 if __name__ == "__main__":
-    # Список чисел для обчислення
     numbers = [1, 2, 3, 4, 5]
 
-    # Створення потоків
+    # Создание потоков
     thread1 = threading.Thread(target=calculate_square, args=(numbers,))
     thread2 = threading.Thread(target=calculate_cube, args=(numbers,))
 
-    # Запуск потоків
+    # Запуск потоков
     thread1.start()
     thread2.start()
 
-    # Очікування завершення потоків
+    # Ожидание завершения потоков
     thread1.join()
     thread2.join()
 
